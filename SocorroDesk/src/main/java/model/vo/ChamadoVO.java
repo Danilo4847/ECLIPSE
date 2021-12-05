@@ -5,24 +5,23 @@ import java.time.LocalDate;
 
 public class ChamadoVO {
 
-	private int idtecnico;
+	
 	private int idchamado;
-	private UsuarioVO idusuario;
+	private int idusuario;
 	private String titulo;
-	private String descriao;
+	private String descricao;
 	private LocalDate data;
 	private String solucao;
 	private LocalDate dataFechamaneto;
 	
 	
-	public ChamadoVO(int idtecnico, int idchamado, UsuarioVO idusuario, String titulo, String descriao, LocalDate data, String solucao,
+	public ChamadoVO(int idchamado, int idusuario, String titulo, String descricao, LocalDate data, String solucao,
 			LocalDate dataFechamaneto) {
 		super();
-		this.idtecnico = idtecnico;
 		this.idchamado = idchamado;
 		this.idusuario = idusuario;
 		this.titulo = titulo;
-		this.descriao = descriao;
+		this.descricao = descricao;
 		this.data = data;
 		this.solucao = solucao;
 		this.dataFechamaneto = dataFechamaneto;
@@ -45,12 +44,12 @@ public class ChamadoVO {
 	}
 
 
-	public UsuarioVO getIdusuario() {
+	public int getIdusuario() {
 		return idusuario;
 	}
 
 
-	public void setIdusuario(UsuarioVO idusuario) {
+	public void setIdusuario(int idusuario) {
 		this.idusuario = idusuario;
 	}
 
@@ -65,13 +64,13 @@ public class ChamadoVO {
 	}
 
 
-	public String getDescriao() {
-		return descriao;
+	public String getDescricao() {
+		return descricao;
 	}
 
 
-	public void setDescriao(String descriao) {
-		this.descriao = descriao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 
@@ -103,6 +102,33 @@ public class ChamadoVO {
 	public void setDataFechamaneto(LocalDate dataFechamaneto) {
 		this.dataFechamaneto = dataFechamaneto;
 	}
+
+
+	public String getIdTecnico() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public void setIdTecnico(int parseInt) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void imprimir() {
+		System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s "
+				,this.getIdchamado(), this.getIdusuario(), this.getIdTecnico(), this.getTitulo(), this.getDescricao(),
+				this.getData(), this.getSolucao(), this.getDataFechamaneto());
+				
+	}
+
+
+	
+
+
+		
+	}
 	
 	
 	
@@ -111,4 +137,4 @@ public class ChamadoVO {
 	
 	
 	
-}
+

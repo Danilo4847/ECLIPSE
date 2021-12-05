@@ -13,7 +13,7 @@ public class Banco {
 	private static final String BANCODADOS = "dbsocorrodesk";
 	private static final String CONEXAO = "jdbc:mysql://localhost:3306/" + BANCODADOS;
 	private static final String USER = "root";
-	private static final String PASSWORD = "admin";
+	private static final String PASSWORD = "danilo";
 	
 	public static Connection getConnection(){
 		try {
