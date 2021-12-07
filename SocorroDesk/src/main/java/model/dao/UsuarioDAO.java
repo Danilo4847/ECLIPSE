@@ -16,6 +16,8 @@ public class UsuarioDAO {
 
 	DateTimeFormatter formaterDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
+	private UsuarioVO usuarioVO;
+
 	public UsuarioVO realizarLoginDAO(UsuarioVO usuarioVO) {
 
 		Connection conn = Banco.getConnection();

@@ -38,20 +38,16 @@ public class MenuAtendimento {
 				break;
 			}
 			default:{
-				System.out.println("OPção Invalida");
+				System.out.println("Opção Invalida");
 			}
 			}
-			opcao=apresentarOpcaomenu();
+			opcao=apresentarOpcaoMenu();
 		}
 		
 	}
 
 
 
-	private int apresentarOpcaoMenu() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 
 
@@ -64,8 +60,8 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 		opcao=OPCAO_MENU_LISTA_CHAMADOS_SAIR;
 		ArrayList<ChamadoVO>listaChamadosVO = chamadoController.listarChamadosAbertosController();
 		System.out.println("\n------------------RESULTADO DE CONSULTA----------------------");
-		System.out.println("\n%10s  %10s  %-30s     %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TÉCNICO","TITULO","DESCRÇÃO","DATA ABERTURA","SOLUÇÃO",
-				"DATA FECHAMENTO");
+		System.out.println("\n%10s  %10s  %-30s  %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TECNICO",
+				"TITULO","DESCRICAO","DATA ABERTURA","SOLUCAO","DATA FECHAMENTO");
 		for(int i = 0;i<listaChamadosVO.size();i++) {
 			listaChamadosVO.get(i).imprimir();
 		}
@@ -74,10 +70,10 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 	}
 	case OPCAO_MENU_LISTA_CHAMDOS_FECHADOS:{
 		opcao=OPCAO_MENU_LISTA_CHAMADOS_SAIR;
-		ArrayList<ChamadoVO>listaChamadosVO = chamadoController.listarChamadosFechadosController();
+		ArrayList<ChamadoVO>listaChamadosVO = chamadoController.consultarChamadosFechadosController();
 		System.out.println("\n------------------RESULTADO DE CONSULTA----------------------");
-		System.out.println("\n%10s  %10s  %-30s     %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TÉCNICO","TITULO","DESCRÇÃO","DATA ABERTURA","SOLUÇÃO",
-				"DATA FECHAMENTO");
+		System.out.println("\n%10s  %10s  %-30s     %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TECNICO",
+				"TITULO","DESCRICAO","DATA ABERTURA","SOLUCAO","DATA FECHAMENTO");
 		for(int i = 0;i<listaChamadosVO.size();i++) {
 			listaChamadosVO.get(i).imprimir();
 		}
@@ -85,7 +81,7 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 		break;
 	}
 	default: {
-		System.out.println("\nOpção ivalida");
+		System.out.println("\nOpÃ§Ã£o ivalida");
 		opcao=this.apresentarOpcoesConsulta();
 	}
 	}
@@ -99,7 +95,7 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 	System.out.println(OPCAO_MENU_LISTA_CHAMADOS_ABERTOS+"listar todos os chamdos");
 	System.out.println(OPCAO_MENU_LISTA_CHAMDOS_FECHADOS+"listar todos os chamdos fechados");
 	System.out.println(OPCAO_MENU_LISTA_CHAMADOS_SAIR+"sair");
-	System.out.println("\nDigite a opção");
+	System.out.println("\nDigite a opÃ§Ã£o");
 	return Integer.parseInt(teclado.nextLine());
 	}
 
@@ -110,7 +106,7 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 	chamadoVO.setIdtecnico(usuarioVO.getIdusuario());
 	System.out.println("\nDigite o codigo do chamado");
 	chamadoVO.setIdchamado(Integer.parseInt(teclado.nextLine()));
-	System.out.println("Digite a solução");
+	System.out.println("Digite a soluÃ§Ã£o");
 	chamadoVO.setSolucao(teclado.nextLine());
 	chamadoVO.setDataFechamaneto(LocalDate.now());
 	
@@ -130,19 +126,21 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 
 
 
-	private int apresentarOpcaomenu() {
+	private int apresentarOpcaoMenu() {
 	System.out.println("\n--Sitema Atendimento--");
 	System.out.println("\n--Menu Atendimento de chamados--");
-	System.out.println("\nOpção");
+	System.out.println("\nOpÃ§Ã£o");
 	System.out.println(OPCAO_MENU_LISTA_CHAMADO+"Lista Chamados");
 	System.out.println(OPCAO_MENU_ATENDER_CHAMADO+"Atender chamados");
 	System.out.println(OPCAO_MENU_CHAMADO_SAIR+"sair");
 	System.out.println("");
-	
+	return Integer.parseInt(teclado.nextLine());
 	
 	
 	
 	}
-	
+
+
+
 
 }

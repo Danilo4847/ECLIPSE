@@ -10,11 +10,12 @@ public class ChamadoController {
 
 
 
+
 	public ChamadoVO cadastrarChamadoController(ChamadoVO chamadoVO) {
 		ChamadoBO chamadoBO = new ChamadoBO();
 		return chamadoBO.cadastrarChamadoBO(chamadoVO);
 	}
-	
+
 	public boolean excluirChamadoController(ChamadoVO chamadoVO) {
 		ChamadoBO chamadoBO = new ChamadoBO();
 		return chamadoBO.excluirChamadoBO(chamadoVO);
@@ -53,8 +54,6 @@ public class ChamadoController {
 	public ArrayList<ChamadoVO> listarChamadosFechadosTecnicoController(UsuarioVO usuarioVO) {
 		ChamadoBO chamadoBO = new ChamadoBO();
 		return chamadoBO.listarChamadosFechadosTecnicoBO(usuarioVO);
-	
-	
-	
-}
+	}
+
 }

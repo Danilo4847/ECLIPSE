@@ -28,9 +28,19 @@ public class Menu {
 				break;
 			}
 			case OPCAO_MENU_ATENDIMENTOS:{ 
+				if(!usuarioVO.getTipoUsuarioVO().equals(TipoUsuarioVO.USUARIO)) {
+					MenuAtendimento menuAtendimento = new MenuAtendimento();
+					menuAtendimento.apresentarMenuAtendimento(usuarioVO);
+				
+				}
 				break;
 			}
 			case OPCAO_MENU_RELATORIOS:{ 
+			if(!usuarioVO.getTipoUsuarioVO().equals(TipoUsuarioVO.USUARIO)) {
+					MenuRelatorio menuRelatorio = new MenuRelatorio();
+					menuRelatorio.apresentarMenuRelatorio();
+				}
+				
 				break;
 			}
 			case OPCAO_MENU_USUARIOS:{ 

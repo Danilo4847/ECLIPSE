@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 public class ChamadoVO {
 
-	
+	private int idtecnico;
 	private int idchamado;
 	private int idusuario;
 	private String titulo;
@@ -14,19 +14,8 @@ public class ChamadoVO {
 	private String solucao;
 	private LocalDate dataFechamaneto;
 	
-	
-	public ChamadoVO(int idchamado, int idusuario, String titulo, String descricao, LocalDate data, String solucao,
-			LocalDate dataFechamaneto) {
-		super();
-		this.idchamado = idchamado;
-		this.idusuario = idusuario;
-		this.titulo = titulo;
-		this.descricao = descricao;
-		this.data = data;
-		this.solucao = solucao;
-		this.dataFechamaneto = dataFechamaneto;
-	}
 
+	
 
 	public ChamadoVO() {
 		super();
@@ -34,9 +23,43 @@ public class ChamadoVO {
 	}
 
 
+
+
+	public ChamadoVO(int idtecnico, int idchamado, int idusuario, String titulo, String descricao, LocalDate data,
+			String solucao, LocalDate dataFechamaneto) {
+		super();
+		this.idtecnico = idtecnico;
+		this.idchamado = idchamado;
+		this.idusuario = idusuario;
+		this.titulo = titulo;
+		this.descricao = descricao;
+		this.data = data;
+		this.solucao = solucao;
+		this.dataFechamaneto = dataFechamaneto;
+	}
+
+
+
+
+	public int getIdtecnico() {
+		return idtecnico;
+	}
+
+
+
+
+	public void setIdtecnico(int idtecnico) {
+		this.idtecnico = idtecnico;
+	}
+
+
+
+
 	public int getIdchamado() {
 		return idchamado;
 	}
+
+
 
 
 	public void setIdchamado(int idchamado) {
@@ -44,9 +67,13 @@ public class ChamadoVO {
 	}
 
 
+
+
 	public int getIdusuario() {
 		return idusuario;
 	}
+
+
 
 
 	public void setIdusuario(int idusuario) {
@@ -54,9 +81,13 @@ public class ChamadoVO {
 	}
 
 
+
+
 	public String getTitulo() {
 		return titulo;
 	}
+
+
 
 
 	public void setTitulo(String titulo) {
@@ -64,9 +95,13 @@ public class ChamadoVO {
 	}
 
 
+
+
 	public String getDescricao() {
 		return descricao;
 	}
+
+
 
 
 	public void setDescricao(String descricao) {
@@ -74,9 +109,13 @@ public class ChamadoVO {
 	}
 
 
+
+
 	public LocalDate getData() {
 		return data;
 	}
+
+
 
 
 	public void setData(LocalDate data) {
@@ -84,9 +123,13 @@ public class ChamadoVO {
 	}
 
 
+
+
 	public String getSolucao() {
 		return solucao;
 	}
+
+
 
 
 	public void setSolucao(String solucao) {
@@ -94,9 +137,13 @@ public class ChamadoVO {
 	}
 
 
+
+
 	public LocalDate getDataFechamaneto() {
 		return dataFechamaneto;
 	}
+
+
 
 
 	public void setDataFechamaneto(LocalDate dataFechamaneto) {
@@ -104,37 +151,18 @@ public class ChamadoVO {
 	}
 
 
-	public String getIdTecnico() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	public void setIdTecnico(int parseInt) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 	public void imprimir() {
 		System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s "
-				,this.getIdchamado(), this.getIdusuario(), this.getIdTecnico(), this.getTitulo(), this.getDescricao(),
+				,this.getIdchamado(), this.getIdusuario(), this.getIdtecnico(), this.getTitulo(), this.getDescricao(),
 				this.getData(), this.getSolucao(), this.getDataFechamaneto());
 				
 	}
 
-
-	
-
-
-		
-	}
 	
 	
 	
 	
 	
-	
-	
-	
-
+}

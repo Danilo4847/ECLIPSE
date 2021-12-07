@@ -1,13 +1,14 @@
 package model.dao;
-
+import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+
+
 
 import model.vo.ChamadoVO;
 import model.vo.UsuarioVO;
@@ -76,7 +77,7 @@ public class ChamadoDAO {
             }
 
         } catch (SQLException e) {
-            System.out.println("Erro ao executar a query que verifica a existência de chamado por ID.");
+            System.out.println("Erro ao executar a query que verifica a existÃªncia de chamado por ID.");
             System.out.println("Erro: "+e.getMessage());
         } finally {
             Banco.closeResultSet(resultado);
@@ -102,7 +103,7 @@ public class ChamadoDAO {
             }
 
         } catch (SQLException e) {
-            System.out.println("Erro ao executar a query que verifica se o chamado pertence ao usuário por ID.");
+            System.out.println("Erro ao executar a query que verifica se o chamado pertence ao usuÃ¡rio por ID.");
             System.out.println("Erro: "+e.getMessage());
         } finally {
             Banco.closeResultSet(resultado);
@@ -128,7 +129,7 @@ public class ChamadoDAO {
             }
 
         } catch (SQLException e) {
-            System.out.println("Erro ao executar a query que verifica se o chamado está aberto.");
+            System.out.println("Erro ao executar a query que verifica se o chamado estÃ¡ aberto.");
             System.out.println("Erro: "+e.getMessage());
         } finally {
             Banco.closeResultSet(resultado);
@@ -153,7 +154,7 @@ public class ChamadoDAO {
             }
 
         } catch (SQLException e) {
-            System.out.println("Erro ao executar a query de exclusão do chamado.");
+            System.out.println("Erro ao executar a query de exclusÃ£o do chamado.");
             System.out.println("Erro: "+e.getMessage());
         } finally {
             Banco.closeStatement(stmt);
@@ -182,7 +183,7 @@ public class ChamadoDAO {
             }
 
         } catch (SQLException e) {
-            System.out.println("Erro ao executar a query de atualização do chamado.");
+            System.out.println("Erro ao executar a query de atualizaÃ§Ã£o do chamado.");
             System.out.println("Erro: "+e.getMessage());
         } finally {
             Banco.closeStatement(stmt);
@@ -209,15 +210,15 @@ public class ChamadoDAO {
 				chamado.setIdchamado(Integer.parseInt(resultado.getString(1)));
 				chamado.setIdusuario(Integer.parseInt(resultado.getString(2)));
 				if(resultado.getString(3) != null) {
-					chamado.setIdTecnico(Integer.parseInt(resultado.getString(3)));
+					chamado.setIdtecnico(Integer.parseInt(resultado.getString(3)));
 				}else {
-					chamado.setIdTecnico(0);
+					chamado.setIdtecnico(0);
 				}
 				chamado.setTitulo(resultado.getString(4));
 				chamado.setDescricao((resultado.getString(5)));
 				chamado.setData(LocalDate.parse(resultado.getString(6), formaterDate));
 				if(resultado.getString(7) == null) {
-					chamado.setSolucao("Não resolvido");
+					chamado.setSolucao("NÃ£o resolvido");
 				}else {
 					chamado.setSolucao(resultado.getString(7));
 				}
@@ -228,7 +229,7 @@ public class ChamadoDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query de consulta de todos os usuários.");
+			System.out.println("Erro ao executar a query de consulta de todos os usuÃ¡rios.");
 			System.out.println("Erro: "+e.getMessage());
 		} finally {
 			Banco.closeResultSet(resultado);
@@ -256,15 +257,15 @@ public class ChamadoDAO {
 				chamado.setIdchamado(Integer.parseInt(resultado.getString(1)));
 				chamado.setIdusuario(Integer.parseInt(resultado.getString(2)));
 				if(resultado.getString(3) != null) {
-					chamado.setIdTecnico(Integer.parseInt(resultado.getString(3)));
+					chamado.setIdtecnico(Integer.parseInt(resultado.getString(3)));
 				}else {
-					chamado.setIdTecnico(0);
+					chamado.setIdtecnico(0);
 				}
 				chamado.setTitulo(resultado.getString(4));
 				chamado.setDescricao((resultado.getString(5)));
 				chamado.setData(LocalDate.parse(resultado.getString(6), formaterDate));
 				if(resultado.getString(7) == null) {
-					chamado.setSolucao("Não resolvido");
+					chamado.setSolucao("NÃ£o resolvido");
 				}else {
 					chamado.setSolucao(resultado.getString(7));
 				}
@@ -275,7 +276,7 @@ public class ChamadoDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query de consulta de todos os usuários.");
+			System.out.println("Erro ao executar a query de consulta de todos os usuÃ¡rios.");
 			System.out.println("Erro: "+e.getMessage());
 		} finally {
 			Banco.closeResultSet(resultado);
@@ -286,7 +287,7 @@ public class ChamadoDAO {
 		return listaChamadosVO;
 	}
 
-	public ArrayList<ChamadoVO> consultarChamadosFechadosDAO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> listarChamadosFechadosDAO(ChamadoVO chamadoVO) {
 		Connection conn = Banco.getConnection();
 		Statement stmt = Banco.getStatement(conn);
 		ResultSet resultado = null;
@@ -303,15 +304,15 @@ public class ChamadoDAO {
 				chamado.setIdchamado(Integer.parseInt(resultado.getString(1)));
 				chamado.setIdusuario(Integer.parseInt(resultado.getString(2)));
 				if(resultado.getString(3) != null) {
-					chamado.setIdTecnico(Integer.parseInt(resultado.getString(3)));
+					chamado.setIdtecnico(Integer.parseInt(resultado.getString(3)));
 				}else {
-					chamado.setIdTecnico(0);
+					chamado.setIdtecnico(0);
 				}
 				chamado.setTitulo(resultado.getString(4));
 				chamado.setDescricao(resultado.getString(5));
 				chamado.setData(LocalDate.parse(resultado.getString(6), formaterDate));
 				if(resultado.getString(7) == null) {
-					chamado.setSolucao("Não resolvido");
+					chamado.setSolucao("NÃ£o resolvido");
 				}else {
 					chamado.setSolucao(resultado.getString(7));
 				}
@@ -322,7 +323,7 @@ public class ChamadoDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query de consulta de todos os usuários.");
+			System.out.println("Erro ao executar a query de consulta de todos os usuÃ¡rios.");
 			System.out.println("Erro: "+e.getMessage());
 		} finally {
 			Banco.closeResultSet(resultado);
@@ -337,7 +338,7 @@ public class ChamadoDAO {
 		Connection conn = Banco.getConnection();
 		Statement stmt = Banco.getStatement(conn);
 		ChamadoVO retorno = new ChamadoVO();
-		String query = "UPDATE chamados SET idtecnico = " + chamadoVO.getIdTecnico()
+		String query = "UPDATE chamados SET idtecnico = " + chamadoVO.getIdtecnico()
 					+ ", solucao = '" + chamadoVO.getSolucao()
 					+"', datafechamento = '" + chamadoVO.getData()
 					+"' WHERE idChamado = " + chamadoVO.getIdchamado();
@@ -370,7 +371,7 @@ public class ChamadoDAO {
 			if(resultado.next()) {
 				chamadoVO.setIdchamado(Integer.parseInt(resultado.getString(1)));
 				chamadoVO.setIdusuario(Integer.parseInt(resultado.getString(2)));
-				chamadoVO.setIdTecnico(Integer.parseInt(resultado.getString(3)));
+				chamadoVO.setIdtecnico(Integer.parseInt(resultado.getString(3)));
 				chamadoVO.setTitulo(resultado.getString(4));
 				chamadoVO.setDescricao(resultado.getString(5));
 				chamadoVO.setData(LocalDate.parse(resultado.getString(6), formaterDate));
@@ -406,15 +407,15 @@ public class ChamadoDAO {
 				chamado.setIdchamado(Integer.parseInt(resultado.getString(1)));
 				chamado.setIdusuario(Integer.parseInt(resultado.getString(2)));
 				if(resultado.getString(3) != null) {
-					chamado.setIdTecnico(Integer.parseInt(resultado.getString(3)));
+					chamado.setIdtecnico(Integer.parseInt(resultado.getString(3)));
 				}else {
-					chamado.setIdTecnico(0);
+					chamado.setIdtecnico(0);
 				}
 				chamado.setTitulo(resultado.getString(4));
 				chamado.setDescricao((resultado.getString(5)));
 				chamado.setData(LocalDate.parse(resultado.getString(6), formaterDate));
 				if(resultado.getString(7) == null) {
-					chamado.setSolucao("Não resolvido");
+					chamado.setSolucao("NÃ£o resolvido");
 				}else {
 					chamado.setSolucao(resultado.getString(7));
 				}
@@ -425,7 +426,7 @@ public class ChamadoDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query de consulta de todos os usuários.");
+			System.out.println("Erro ao executar a query de consulta de todos os usuÃ¡rios.");
 			System.out.println("Erro: "+e.getMessage());
 		} finally {
 			Banco.closeResultSet(resultado);
@@ -453,15 +454,15 @@ public class ChamadoDAO {
 				chamado.setIdchamado(Integer.parseInt(resultado.getString(1)));
 				chamado.setIdusuario(Integer.parseInt(resultado.getString(2)));
 				if(resultado.getString(3) != null) {
-					chamado.setIdTecnico(Integer.parseInt(resultado.getString(3)));
+					chamado.setIdtecnico(Integer.parseInt(resultado.getString(3)));
 				}else {
-					chamado.setIdTecnico(0);
+					chamado.setIdtecnico(0);
 				}
 				chamado.setTitulo(resultado.getString(4));
 				chamado.setDescricao(resultado.getString(5));
 				chamado.setData(LocalDate.parse(resultado.getString(6), formaterDate));
 				if(resultado.getString(7) == null) {
-					chamado.setSolucao("Não resolvido");
+					chamado.setSolucao("NÃ£o resolvido");
 				}else {
 					chamado.setSolucao(resultado.getString(7));
 				}
@@ -472,7 +473,7 @@ public class ChamadoDAO {
 			}
 			
 		} catch (SQLException e) {
-			System.out.println("Erro ao executar a query de consulta de todos os usuários.");
+			System.out.println("Erro ao executar a query de consulta de todos os usuÃ¡rios.");
 			System.out.println("Erro: "+e.getMessage());
 		} finally {
 			Banco.closeResultSet(resultado);

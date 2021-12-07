@@ -23,7 +23,6 @@ public class MenuChamado {
 	private static final int OPCAO_EXCLUIR_CHAMADO=4;
 	private static final int OPCAO_SAIR=9;
 	
-	
 	private static final int OPCAO_MENU_CONSULTAR_TODOS_CHAMADOS = 1;
 	private static final int OPCAO_MENU_CONSULTAR_CHAMADOS_ABERTOS = 2;
 	private static final int OPCAO_MENU_CONSULTAR_CHAMADOS_FECHADOS = 3;
@@ -46,7 +45,6 @@ public class MenuChamado {
 				case OPCAO_CONSULTAR_CHAMADO:{
 					UsuarioVO usuarioVO = new UsuarioVO();
 					this.consultarChamado(usuarioVO);
-					
 					break;
 				}
 				case OPCAO_ATUALIZAR_CHAMADO:{
@@ -69,8 +67,6 @@ public class MenuChamado {
 			}
 		}
 
-
-	
 
 	private int apresentarOpcaoMenu() {
 		System.out.println("\n---Sistema Socorro Desk---");
@@ -145,12 +141,12 @@ public class MenuChamado {
 		}
 
 
-
 		private void consultarChamado(UsuarioVO usuarioVO) {
 			int opcao = this.apresentarOpcoesConsulta();
 			ChamadoController chamadoController = new ChamadoController();
 			ChamadoVO chamadoVO = new ChamadoVO();
 			chamadoVO.setIdusuario(usuarioVO.getIdusuario());
+			
 			while (opcao != OPCAO_MENU_CONSULTAR_SAIR) {
 				switch (opcao) {
 					case OPCAO_MENU_CONSULTAR_TODOS_CHAMADOS:{
@@ -158,7 +154,7 @@ public class MenuChamado {
 						ArrayList<ChamadoVO> listaChamadosVO = chamadoController.consultarTodosChamadosUsuarioController(chamadoVO);
 						System.out.println("\n-------- RESULTADO DA CONSULTA --------");
 						System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s  ", 
-								"ID CHAMADO", "ID USUÁRIO", "ID TÉCNICO", "TÍTULO", "DESCRIÇÃO", "DATA ABERTURA", "SOLUÇÃO", "DATA FECHAMENTO");
+								"ID CHAMADO", "ID USUÃ�RIO", "ID TeCNICO", "TÃ�TULO", "DESCRIÃ‡ÃƒO", "DATA ABERTURA", "SOLUÃ‡ÃƒO", "DATA FECHAMENTO");
 						for(ChamadoVO chamado: listaChamadosVO) {
 							chamado.imprimir();
 						}
@@ -169,7 +165,7 @@ public class MenuChamado {
 						ArrayList<ChamadoVO> listaChamadosAbertosVO = chamadoController.consultarChamadosAbertosUsuarioController(chamadoVO);
 						System.out.println("\n-------- RESULTADO DA CONSULTA --------");
 						System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s  ", 
-								"ID CHAMADO", "ID USUÁRIO", "ID TÉCNICO", "TÍTULO", "DESCRIÇÃO", "DATA ABERTURA", "SOLUÇÃO", "DATA FECHAMENTO");
+								"ID CHAMADO", "ID USUÃ�RIO", "ID TÃ‰CNICO", "TÃ�TULO", "DESCRIÃ‡ÃƒO", "DATA ABERTURA", "SOLUÃ‡ÃƒO", "DATA FECHAMENTO");
 						for(ChamadoVO chamado: listaChamadosAbertosVO) {
 							chamado.imprimir();
 						}
@@ -181,14 +177,14 @@ public class MenuChamado {
 						ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoController.consultarChamadosFechadosController(chamadoVO);
 						System.out.println("\n-------- RESULTADO DA CONSULTA --------");
 						System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s  ", 
-								"ID CHAMADO", "ID USUÁRIO", "ID TÉCNICO", "TÍTULO", "DESCRIÇÃO", "DATA ABERTURA", "SOLUÇÃO", "DATA FECHAMENTO");
+								"ID CHAMADO", "ID USUÃ�RIO", "ID TÃ‰CNICO", "TÃ�TULO", "DESCRIÃ‡ÃƒO", "DATA ABERTURA", "SOLUÃ‡ÃƒO", "DATA FECHAMENTO");
 						for(ChamadoVO chamado: listaChamadosFechadosVO) {
 							chamado.imprimir();
 						}
 						break;
 					}
 					default:{
-						System.out.println("\nOpção inválida!");
+						System.out.println("\nOpÃ§Ã£o invÃ¡lida!");
 						opcao = this.apresentarOpcoesConsulta();
 						break;
 					}
@@ -203,18 +199,18 @@ public class MenuChamado {
 			System.out.println(OPCAO_MENU_CONSULTAR_CHAMADOS_ABERTOS + " - Consultar chamados abertos");
 			System.out.println(OPCAO_MENU_CONSULTAR_CHAMADOS_FECHADOS + " - Consultar chamados fechados");
 			System.out.println(OPCAO_MENU_CONSULTAR_SAIR + " - Sair");
-			System.out.print("\nDigite uma opção: ");
+			System.out.print("\nDigite uma opÃ§Ã£o: ");
 			return Integer.parseInt(teclado.nextLine());
 		}
 
 		private void atualizarChamado(UsuarioVO usuarioVO) {
 			ChamadoVO chamadoVO = new ChamadoVO();
-			System.out.print("\nDigite o código do chamado: ");
+			System.out.print("\nDigite o cÃ³digo do chamado: ");
 			chamadoVO.setIdchamado(Integer.parseInt(teclado.nextLine()));
 			chamadoVO.setIdusuario(usuarioVO.getIdusuario());
-			System.out.print("\nDigite o novo título do chamado: ");
+			System.out.print("\nDigite o novo tÃ­tulo do chamado: ");
 			chamadoVO.setTitulo(teclado.nextLine());
-			System.out.print("\nDigite a nova descrição do chamado: ");
+			System.out.print("\nDigite a nova descriÃ§Ã£o do chamado: ");
 			chamadoVO.setDescricao(teclado.nextLine());
 			chamadoVO.setData(LocalDate.now());
 
@@ -222,11 +218,11 @@ public class MenuChamado {
 			System.out.println();
 
 			if(chamadoVO.getTitulo().isEmpty() || chamadoVO.getTitulo() == null) {
-				System.out.println("O campo Título é obrigatório!");
+				System.out.println("O campo TÃ­tulo Ã© obrigatÃ³rio!");
 				resultado = false;
 			}
 			if(chamadoVO.getDescricao().isEmpty() || chamadoVO.getDescricao() == null) {
-				System.out.println("O campo descrição é obrigatório!");
+				System.out.println("O campo descriÃ§Ã£o Ã© obrigatÃ³rio!");
 				resultado = false;
 			}
 
@@ -237,7 +233,7 @@ public class MenuChamado {
 				if(resultado) {
 					System.out.println("Chamado atualizado com sucesso!");
 				}else {
-					System.out.println("Não foi possível atualizar o chamado.");
+					System.out.println("NÃ£o foi possÃ­vel atualizar o chamado.");
 				}
 			}
 			
@@ -252,9 +248,9 @@ public class MenuChamado {
 			boolean resultado = chamadoController.excluirChamadoController(chamadoVO);
 
 			if(resultado){
-				System.out.println("\nChamado excluído com sucesso!");
+				System.out.println("\nChamado excluido com sucesso!");
 			}else{
-				System.out.println("\nNão foi possível excluir o chamado!");
+				System.out.println("\nNão foi possivel excluir o chamado!");
 			}
 			
 		}
@@ -270,6 +266,14 @@ public class MenuChamado {
 			System.out.print("\nDigite a opção: ");
 			return Integer.parseInt(teclado.nextLine());
 		}
+	
+
+
+		
+		
+		
+
+
 	
 
 

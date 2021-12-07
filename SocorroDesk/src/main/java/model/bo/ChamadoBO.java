@@ -13,6 +13,7 @@ public class ChamadoBO {
 
 	
 
+
 	public ChamadoVO cadastrarChamadoBO(ChamadoVO chamadoVO) {
 			ChamadoDAO chamadoDAO = new ChamadoDAO();
 			if(chamadoDAO.verificarExistenciaPorIdChamadoDAO(chamadoVO.getIdchamado())) {
@@ -67,7 +68,7 @@ public class ChamadoBO {
 	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioBO(ChamadoVO chamadoVO) {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
 		ArrayList<ChamadoVO> listaChamadosVO = chamadoDAO.consultarTodosChamadosUsuarioDAO(chamadoVO);
-		if(listaChamadosVO.isEmpty()) {
+		if(listaChamadosVO.i sEmpty()) {
 			System.out.println("\nLista de chamados está vazia.");
 		}
 		return listaChamadosVO;
@@ -84,7 +85,7 @@ public class ChamadoBO {
 
 	public ArrayList<ChamadoVO> consultarChamadosFechadosBO(ChamadoVO chamadoVO) {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
-		ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoDAO.consultarChamadosFechadosDAO(chamadoVO);
+		ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoDAO.listarChamadosFechadosDAO(chamadoVO);
 		if(listaChamadosFechadosVO.isEmpty()) {
 			System.out.println("\nLista de chamados fechados está vazia.");
 		}
@@ -124,9 +125,7 @@ public class ChamadoBO {
 		return chamadosVO;
 	}
 
-
 }
-
 	
 
 
