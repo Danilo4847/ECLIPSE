@@ -59,8 +59,8 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 	case OPCAO_MENU_LISTA_CHAMADOS_ABERTOS:{
 		opcao=OPCAO_MENU_LISTA_CHAMADOS_SAIR;
 		ArrayList<ChamadoVO>listaChamadosVO = chamadoController.listarChamadosAbertosController();
-		System.out.println("\n------------------RESULTADO DE CONSULTA----------------------");
-		System.out.println("\n%10s  %10s  %-30s  %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TECNICO",
+		System.out.print("\n------------------RESULTADO DE CONSULTA----------------------");
+		System.out.printf("\n%10s  %10s  %-30s  %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TECNICO",
 				"TITULO","DESCRICAO","DATA ABERTURA","SOLUCAO","DATA FECHAMENTO");
 		for(int i = 0;i<listaChamadosVO.size();i++) {
 			listaChamadosVO.get(i).imprimir();
@@ -70,9 +70,9 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 	}
 	case OPCAO_MENU_LISTA_CHAMDOS_FECHADOS:{
 		opcao=OPCAO_MENU_LISTA_CHAMADOS_SAIR;
-		ArrayList<ChamadoVO>listaChamadosVO = chamadoController.consultarChamadosFechadosController();
-		System.out.println("\n------------------RESULTADO DE CONSULTA----------------------");
-		System.out.println("\n%10s  %10s  %-30s     %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TECNICO",
+		ArrayList<ChamadoVO>listaChamadosVO = chamadoController.consultarChamadosFechadosController(usuarioVO);
+		System.out.print("\n------------------RESULTADO DE CONSULTA----------------------");
+		System.out.printf("\n%10s  %10s  %-30s %-50s  %-15s  %-30s   %-30s  %-15s","ID CHAMADO","ID USUARIO","ID TECNICO",
 				"TITULO","DESCRICAO","DATA ABERTURA","SOLUCAO","DATA FECHAMENTO");
 		for(int i = 0;i<listaChamadosVO.size();i++) {
 			listaChamadosVO.get(i).imprimir();
@@ -81,7 +81,7 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 		break;
 	}
 	default: {
-		System.out.println("\nOpÃ§Ã£o ivalida");
+		System.out.println("\nOpção invalida");
 		opcao=this.apresentarOpcoesConsulta();
 	}
 	}
@@ -95,7 +95,7 @@ while(opcao!=OPCAO_MENU_LISTA_CHAMADOS_SAIR) {
 	System.out.println(OPCAO_MENU_LISTA_CHAMADOS_ABERTOS+"listar todos os chamdos");
 	System.out.println(OPCAO_MENU_LISTA_CHAMDOS_FECHADOS+"listar todos os chamdos fechados");
 	System.out.println(OPCAO_MENU_LISTA_CHAMADOS_SAIR+"sair");
-	System.out.println("\nDigite a opÃ§Ã£o");
+	System.out.println("\nDigite a opção");
 	return Integer.parseInt(teclado.nextLine());
 	}
 

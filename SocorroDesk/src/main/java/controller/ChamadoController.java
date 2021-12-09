@@ -26,19 +26,19 @@ public class ChamadoController {
 		return chamadoBO.atualizarChamadoBO(chamadoVO);
 	}
 
-	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioController(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioController(UsuarioVO usuarioVO) {
 		ChamadoBO chamadoBO = new ChamadoBO();
-		return chamadoBO.consultarTodosChamadosUsuarioBO(chamadoVO);
+		return chamadoBO.consultarTodosChamadosUsuarioBO(usuarioVO);
 	}
 
-	public ArrayList<ChamadoVO> consultarChamadosAbertosUsuarioController(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarChamadosAbertosUsuarioController(UsuarioVO usuarioVO) {
 		ChamadoBO chamadoBO = new ChamadoBO();
-		return chamadoBO.consultarChamadosAbertosUsuarioBO(chamadoVO);
+		return chamadoBO.consultarChamadosAbertosUsuarioBO(usuarioVO);
 	}
 
-	public ArrayList<ChamadoVO> consultarChamadosFechadosController(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarChamadosFechadosController(UsuarioVO usuarioVO) {
 		ChamadoBO chamadoBO = new ChamadoBO();
-		return chamadoBO.consultarChamadosFechadosBO(chamadoVO);
+		return chamadoBO.consultarChamadosFechadosBO(usuarioVO);
 	}
 
 	public ChamadoVO atenderChamadoController(ChamadoVO chamadoVO) {
@@ -55,5 +55,6 @@ public class ChamadoController {
 		ChamadoBO chamadoBO = new ChamadoBO();
 		return chamadoBO.listarChamadosFechadosTecnicoBO(usuarioVO);
 	}
+
 
 }

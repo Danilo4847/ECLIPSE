@@ -151,7 +151,7 @@ public class MenuChamado {
 				switch (opcao) {
 					case OPCAO_MENU_CONSULTAR_TODOS_CHAMADOS:{
 						opcao = OPCAO_MENU_CONSULTAR_SAIR;
-						ArrayList<ChamadoVO> listaChamadosVO = chamadoController.consultarTodosChamadosUsuarioController(chamadoVO);
+						ArrayList<ChamadoVO> listaChamadosVO = chamadoController.consultarTodosChamadosUsuarioController(usuarioVO);
 						System.out.println("\n-------- RESULTADO DA CONSULTA --------");
 						System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s  ", 
 								"ID CHAMADO", "ID USUÃ�RIO", "ID TeCNICO", "TÃ�TULO", "DESCRIÃ‡ÃƒO", "DATA ABERTURA", "SOLUÃ‡ÃƒO", "DATA FECHAMENTO");
@@ -162,7 +162,7 @@ public class MenuChamado {
 					}
 					case OPCAO_MENU_CONSULTAR_CHAMADOS_ABERTOS:{
 						opcao = OPCAO_MENU_CONSULTAR_SAIR;
-						ArrayList<ChamadoVO> listaChamadosAbertosVO = chamadoController.consultarChamadosAbertosUsuarioController(chamadoVO);
+						ArrayList<ChamadoVO> listaChamadosAbertosVO = chamadoController.consultarChamadosAbertosUsuarioController(usuarioVO);
 						System.out.println("\n-------- RESULTADO DA CONSULTA --------");
 						System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s  ", 
 								"ID CHAMADO", "ID USUÃ�RIO", "ID TÃ‰CNICO", "TÃ�TULO", "DESCRIÃ‡ÃƒO", "DATA ABERTURA", "SOLUÃ‡ÃƒO", "DATA FECHAMENTO");
@@ -174,7 +174,7 @@ public class MenuChamado {
 					case OPCAO_MENU_CONSULTAR_CHAMADOS_FECHADOS:{
 						opcao = OPCAO_MENU_CONSULTAR_SAIR;
 						opcao = OPCAO_MENU_CONSULTAR_SAIR;
-						ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoController.consultarChamadosFechadosController(chamadoVO);
+						ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoController.consultarChamadosFechadosController(usuarioVO);
 						System.out.println("\n-------- RESULTADO DA CONSULTA --------");
 						System.out.printf("\n%10s  %10s  %10s  %-30s  %-50s  %-15s  %-30s  %-15s  ", 
 								"ID CHAMADO", "ID USUÃ�RIO", "ID TÃ‰CNICO", "TÃ�TULO", "DESCRIÃ‡ÃƒO", "DATA ABERTURA", "SOLUÃ‡ÃƒO", "DATA FECHAMENTO");

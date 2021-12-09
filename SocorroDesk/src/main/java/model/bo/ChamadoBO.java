@@ -65,27 +65,27 @@ public class ChamadoBO {
         return retorno;
     }
 
-	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioBO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioBO(UsuarioVO usuarioVO) {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
-		ArrayList<ChamadoVO> listaChamadosVO = chamadoDAO.consultarTodosChamadosUsuarioDAO(chamadoVO);
-		if(listaChamadosVO.i sEmpty()) {
+		ArrayList<ChamadoVO> listaChamadosVO = chamadoDAO.consultarTodosChamadosUsuarioDAO(usuarioVO);
+		if(listaChamadosVO.isEmpty()) {
 			System.out.println("\nLista de chamados está vazia.");
 		}
 		return listaChamadosVO;
 	}
 
-	public ArrayList<ChamadoVO> consultarChamadosAbertosUsuarioBO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarChamadosAbertosUsuarioBO(UsuarioVO usuarioVO) {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
-		ArrayList<ChamadoVO> listaChamadosAbertosVO = chamadoDAO.consultarChamadosAbertosUsuarioDAO(chamadoVO);
+		ArrayList<ChamadoVO> listaChamadosAbertosVO = chamadoDAO.consultarChamadosAbertosUsuarioDAO(usuarioVO);
 		if(listaChamadosAbertosVO.isEmpty()) {
 			System.out.println("\nLista de chamados abertos está vazia.");
 		}
 		return listaChamadosAbertosVO;
 	}
 
-	public ArrayList<ChamadoVO> consultarChamadosFechadosBO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarChamadosFechadosBO(UsuarioVO usuarioVO) {
 		ChamadoDAO chamadoDAO = new ChamadoDAO();
-		ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoDAO.listarChamadosFechadosDAO(chamadoVO);
+		ArrayList<ChamadoVO> listaChamadosFechadosVO = chamadoDAO.listarChamadosFechadosDAO(usuarioVO);
 		if(listaChamadosFechadosVO.isEmpty()) {
 			System.out.println("\nLista de chamados fechados está vazia.");
 		}

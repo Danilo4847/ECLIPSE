@@ -193,7 +193,7 @@ public class ChamadoDAO {
         return retorno;
     }
 
-	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioDAO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarTodosChamadosUsuarioDAO(UsuarioVO usuarioVO) {
 		Connection conn = Banco.getConnection();
 		Statement stmt = Banco.getStatement(conn);
 		ResultSet resultado = null;
@@ -201,7 +201,7 @@ public class ChamadoDAO {
 		ArrayList<ChamadoVO> listaChamadosVO = new ArrayList<ChamadoVO>();
 		
 		String query = "SELECT idchamado, idusuario, idtecnico, titulo, descricao, dataabertura, solucao, datafechamento "
-				+"FROM chamados WHERE idusuario = "+chamadoVO.getIdusuario();
+				+"FROM chamados WHERE idusuario = "+usuarioVO.getIdusuario();
 		
 		try {
 			resultado = stmt.executeQuery(query);
@@ -240,7 +240,7 @@ public class ChamadoDAO {
 		return listaChamadosVO;
 	}
 
-	public ArrayList<ChamadoVO> consultarChamadosAbertosUsuarioDAO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> consultarChamadosAbertosUsuarioDAO(UsuarioVO usuarioVO) {
 		Connection conn = Banco.getConnection();
 		Statement stmt = Banco.getStatement(conn);
 		ResultSet resultado = null;
@@ -248,7 +248,7 @@ public class ChamadoDAO {
 		ArrayList<ChamadoVO> listaChamadosVO = new ArrayList<ChamadoVO>();
 		
 		String query = "SELECT idchamado, idusuario, idtecnico, titulo, descricao, dataabertura, solucao, datafechamento "
-				+"FROM chamados WHERE idusuario = "+chamadoVO.getIdusuario()+" AND datafechamento is null";
+				+"FROM chamados WHERE idusuario = "+usuarioVO.getIdusuario()+" AND datafechamento is null";
 		
 		try {
 			resultado = stmt.executeQuery(query);
@@ -287,7 +287,7 @@ public class ChamadoDAO {
 		return listaChamadosVO;
 	}
 
-	public ArrayList<ChamadoVO> listarChamadosFechadosDAO(ChamadoVO chamadoVO) {
+	public ArrayList<ChamadoVO> listarChamadosFechadosDAO(UsuarioVO usuarioVO) {
 		Connection conn = Banco.getConnection();
 		Statement stmt = Banco.getStatement(conn);
 		ResultSet resultado = null;
@@ -295,7 +295,7 @@ public class ChamadoDAO {
 		ArrayList<ChamadoVO> listaChamadosVO = new ArrayList<ChamadoVO>();
 		
 		String query = "SELECT idchamado, idusuario, idtecnico, titulo, descricao, dataabertura, solucao, datafechamento "
-				+"FROM chamados WHERE idusuario = "+chamadoVO.getIdusuario()+" AND datafechamento is not null";
+				+"FROM chamados WHERE idusuario = "+usuarioVO.getIdusuario()+" AND datafechamento is not null";
 		
 		try {
 			resultado = stmt.executeQuery(query);

@@ -12,7 +12,6 @@ public class RelatorioController {
 		RelatorioBO relatorioBO = new RelatorioBO();
 		return relatorioBO.apresentarRelatorioDosUsuariosDoChamado();
 
-		return null;
 	}
 
 }
